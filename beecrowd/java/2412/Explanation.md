@@ -1,48 +1,56 @@
-# Descrição do Problema
+# Problem Description
 
-Tarzan precisa manter a ordem na floresta e, para isso, ele viaja entre as árvores utilizando cipós. Após uma tempestade, restaram apenas 
-𝑁 árvores, e ele quer saber se consegue viajar entre todas elas usando os cipós. Ele só pode viajar entre duas árvores se a distância entre elas for menor ou igual ao alcance 
-𝐷 dos cipós.
+Tarzan needs to maintain order in the forest, and to do so, he travels between trees using vines. After a storm, only 
+𝑁 trees remain, and he wants to know if he can travel between all of them using the vines. He can only travel between two trees if the distance between them is less than or equal to the vine's range 
+𝐷.
 
-O objetivo é verificar se Tarzan consegue alcançar todas as árvores a partir de qualquer árvore, possivelmente passando por outras árvores no caminho.
+The objective is to check if Tarzan can reach all the trees from any starting tree, possibly passing through other trees along the way.
 
-## Entradas:
-- **N**: Número de árvores restantes (2 ≤ N ≤ 1000).
-- **D**: Alcance dos cipós em metros (1 ≤ D ≤ 5000).
-- **(X<sub>i</sub>, Y<sub>i</sub>)**: Coordenadas de cada árvore no plano (0 ≤ X<sub>i</sub>, Y<sub>i</sub> ≤ 5000).
+## Input:
 
-## Saída:
-- "S": Tarzan consegue viajar entre todas as árvores.
-- "N": Tarzan não consegue viajar entre todas as árvores.
+- **N**: Number of remaining trees (2 ≤ N ≤ 1000).
+- **D**: Vine's range in meters (1 ≤ D ≤ 5000).
+- **(X<sub>i</sub>, Y<sub>i</sub>)**: Coordinates of each tree on the plane (0 ≤ X<sub>i</sub>, Y<sub>i</sub> ≤ 5000).
 
-# Resolução
+## Output:
 
-## 1. Modelagem do Problema como Grafo
-- Cada árvore é um nó (vértice) em um grafo.
-- Existe uma aresta entre dois nós (árvores) i e j se a distância entre eles for menor ou igual a D.
-- Distância Euclidiana entre duas árvores com coordenadas (X<sub>i</sub>, Y<sub>i</sub>) e (X<sub>j</sub>, Y<sub>j</sub>):
+- "S": Tarzan can travel between all trees.
+- "N": Tarzan cannot travel between all trees.
+
+# Solution
+
+## 1. Modeling the Problem as a Graph
+
+- Each tree is a node (vertex) in a graph.
+- There is an edge between two nodes (trees) i and j if the distance between them is less than or equal to D.
+- The Euclidean distance between two trees with coordinates (X<sub>i</sub>, Y<sub>i</sub>) and (X<sub>j</sub>, Y<sub>j</sub>):
     - d(i,j) = √((X<sub>i</sub> - X<sub>j</sub>)² + (Y<sub>i</sub> - Y<sub>j</sub>)²)
-- Em vez de calcular a raiz quadrada, comparamos os quadrados das distâncias:
+- Instead of calculating the square root, we compare the squares of the distances:
     - d(i,j)² ≤ D²
 
-## 2. Objetivo
-- Verificar se o grafo formado é conexo, ou seja, se é possível alcançar todas as árvores partindo de qualquer árvore.
-- Para isso, utilizamos Busca em Profundidade (DFS) para explorar o grafo.
+## 2. Objective
 
-# Implementação
+- Check if the graph is connected, meaning it is possible to reach all trees starting from any tree.
+- To do this, we use Depth-First Search (DFS) to explore the graph.
 
-## 1. Entrada dos Dados
-- Ler o número de árvores N e o alcance D.
-- Ler as coordenadas (X<sub>i</sub>, Y<sub>i</sub>) de cada árvore.
+# Implementation
 
-## 2. Construção do Grafo
-- Criar uma lista de adjacência que conecte as árvores com distância ≤ D.
-- Para cada par de árvores i e j, calcular a distância e adicionar uma aresta entre elas se a distância for válida.
+## 1. Input Data
 
-## 3. Busca em Profundidade (DFS)
-- Utilizar DFS para verificar se todas as árvores podem ser visitadas a partir de uma árvore inicial.
-- Marcar as árvores visitadas em um array booleano `visitado[]`.
+- Read the number of trees N and the vine's range D.
+- Read the coordinates (X<sub>i</sub>, Y<sub>i</sub>) of each tree.
 
-## 4. Verificar Conectividade
-- Após a DFS, verificar se todas as árvores foram visitadas.
-- Se todas foram visitadas, o grafo é conexo e a resposta é "S". Caso contrário, a resposta é "N".
+## 2. Graph Construction
+
+- Create an adjacency list connecting trees with a distance ≤ D.
+- For each pair of trees i and j, calculate the distance and add an edge between them if the distance is valid.
+
+## 3. Depth-First Search (DFS)
+
+- Use DFS to check if all trees can be visited starting from one initial tree.
+- Mark the visited trees in a boolean array `visited[]`.
+
+## 4. Check Connectivity
+
+- After the DFS, check if all trees have been visited.
+- If all were visited, the graph is connected and the answer is "S". Otherwise, the answer is "N".
