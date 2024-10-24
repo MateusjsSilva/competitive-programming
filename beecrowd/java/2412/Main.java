@@ -15,19 +15,19 @@ public class Main
         
         int[][] arvores = new int[N][2];
         
-        // Lê as coordenadas das árvores
+        // Read the coordinates of the trees
         for (int i = 0; i < N; i++) {
             arvores[i][0] = sc.nextInt(); // X
             arvores[i][1] = sc.nextInt(); // Y
         }
         
-        // Cria a lista de adjacência
+        // Create the adjacency list
         adj = new ArrayList<>();
         for (int i = 0; i < N; i++) {
             adj.add(new ArrayList<>());
         }
         
-        // Conecta as árvores no grafo se a distância entre elas for <= D
+        // Connect trees in the graph if the distance between them is <= D
         for (int i = 0; i < N; i++) {
             for (int j = i + 1; j < N; j++) {
                 if (distancia(arvores[i], arvores[j]) <= D * D) {
@@ -37,13 +37,12 @@ public class Main
             }
         }
 
-        // Array de visitados
         visitado = new boolean[N];
         
-        // Inicia a DFS a partir da primeira árvore
+        // Start DFS from the first tree
         dfs(0);
 
-        // Verifica se todas as árvores foram visitadas
+        // Check if all trees have been visited
         boolean conectado = true;
         for (boolean v : visitado) {
             if (!v) {
@@ -56,7 +55,7 @@ public class Main
         sc.close();
     }
 
-    // Função de DFS para explorar o grafo
+    // DFS function to explore the graph
     static void dfs(int node) {
         visitado[node] = true;
         for (int vizinho : adj.get(node)) {
@@ -66,7 +65,7 @@ public class Main
         }
     }
 
-    // Função para calcular a distância euclidiana ao quadrado entre duas árvores
+    // Function to calculate the squared Euclidean distance between two trees
     static int distancia(int[] arv1, int[] arv2) {
         int dx = arv1[0] - arv2[0];
         int dy = arv1[1] - arv2[1];
