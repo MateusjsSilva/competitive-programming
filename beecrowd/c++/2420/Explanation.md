@@ -1,44 +1,48 @@
-# Descrição do Problema
-Após uma guerra de 50 anos, os países Tombólia do Oeste e Tombólia do Leste decidiram fazer um tratado de paz. Para terminar a disputa, eles precisam dividir o território de forma justa. O território é composto por várias seções de tamanhos distintos, dispostas em sequência, e eles querem encontrar um ponto de divisão que satisfaça a seguinte condição:
+# Territory Division Problem
 
-A soma das seções da esquerda até a seção k deve ser igual à soma das seções da direita a partir da seção k+1.
-Sua tarefa é determinar a seção k que divide o território conforme essa condição.
+After a 50-year war, the countries Tombólia do Oeste and Tombólia do Leste have decided to sign a peace treaty. To end the conflict, they need to fairly divide their territory. The territory is made up of several sections of different sizes, arranged sequentially, and they want to find a division point that satisfies the following condition:
 
-### Exemplo:
-Dado um conjunto de N seções de território, representadas por números inteiros:
+The sum of the sections from the left up to section `k` must be equal to the sum of the sections from `k+1` onward on the right.
+The task is to determine the section `k` that divides the territory according to this condition.
 
-- Seção 1: a1
-- Seção 2: a2
+### Example:
+
+Given a set of N territory sections, represented by integers:
+
+- Section 1: `a1`
+- Section 2: `a2`
 - ...
-- Seção N: aN
+- Section N: `aN`
 
-Encontre o ponto de divisão k tal que:
-
+Find the division point `k` such that:
 ```
 a1 + a2 + ... + ak = ak+1 + ak+2 + ... + aN
 ```
 
-### Entrada
-A primeira linha da entrada contém um inteiro N (1 ≤ N ≤ 10⁵) indicando o número de seções do território.
-A segunda linha contém N inteiros a1, a2, ..., aN (1 ≤ ai ≤ 100), separados por espaço, que indicam os comprimentos de cada seção.
+### Input
 
-### Saída
-O programa deve imprimir uma única linha contendo o índice da seção k onde deve acontecer a divisão (baseada em índice 1).
+The first line of input contains an integer `N` (1 ≤ N ≤ 10⁵), indicating the number of territory sections.
+The second line contains `N` integers `a1, a2, ..., aN` (1 ≤ ai ≤ 100), separated by spaces, representing the length of each section.
 
-**Observação:** O problema garante que sempre haverá uma divisão que satisfaz a condição pedida.
+### Output
+The program should print a single line containing the index of the section `k` where the division should occur (based on 1-based indexing).
 
-## Abordagem para Solução
+**Note:** The problem guarantees that there is always a division point that satisfies the required condition.
 
-#### Passos para Resolver o Problema:
-1. **Somar Todas as Seções:** Primeiramente, precisamos calcular a soma total de todas as seções.
-2. **Cálculo Progressivo:** À medida que percorremos o array de seções, vamos acumulando a soma das seções à esquerda (inicialmente 0). Para cada posição k, a soma à direita pode ser obtida subtraindo a soma à esquerda da soma total.
-3. **Verificar o Ponto de Divisão:** Quando a soma acumulada das seções à esquerda for igual à soma das seções à direita, encontramos o ponto k onde a divisão deve ocorrer.
+## Approach to the Solution
 
-## Código:
-1. **Entrada:** Lemos o número de seções e o tamanho de cada uma delas.
-2. **Cálculo da Soma Total:** Inicialmente, somamos todas as seções.
-3. **Iteração para Encontrar o Ponto de Divisão:**
-    - Para cada seção, removemos seu valor da soma total (para obter a soma das seções à direita).
-    - Verificamos se a soma à esquerda é igual à soma à direita. Se sim, imprimimos o índice da seção k.
+#### Steps to Solve the Problem:
 
-**Otimização:** O código faz uma única iteração sobre o array, resultando em uma complexidade linear O(N).
+1. **Sum All Sections:** First, we need to calculate the total sum of all sections.
+2. **Progressive Calculation:** As we iterate through the array of sections, we accumulate the sum of the sections on the left (initially 0). For each position `k`, the sum of the right sections can be obtained by subtracting the left sum from the total sum.
+3. **Check the Division Point:** When the accumulated sum of the left sections equals the sum of the right sections, we have found the point `k` where the division should occur.
+
+## Code:
+
+1. **Input:** We read the number of sections and the size of each section.
+2. **Total Sum Calculation:** Initially, we sum all the sections.
+3. **Iteration to Find the Division Point:**
+    - For each section, we subtract its value from the total sum (to get the right sum).
+    - We check if the left sum equals the right sum. If so, we print the index of section `k`.
+
+**Optimization:** The code iterates through the array once, resulting in a linear time complexity of O(N).
