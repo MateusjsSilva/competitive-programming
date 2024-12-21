@@ -16,7 +16,7 @@ The repository is organized into directories based on platforms or contests. Her
 - Each platform or contest has its own folder.
 - Each problem is stored in its own folder, named after the problem's title or ID.
 - The problem folder contains:
-  - The solution file(s) (e.g., `.cpp`, `.java`, `.py`).
+  - The solution file(s) (e.g., `.cpp`, `.java`, `.py`, `.cs`).
   - A README or a comment within the code explaining the approach, the algorithm used, and any specific optimizations.
 
 ## How to Use
