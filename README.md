@@ -19,6 +19,22 @@ The repository is organized into directories based on platforms or contests. Her
   - The solution file(s) (e.g., `.cpp`, `.java`, `.py`, `.cs`).
   - A README or a comment within the code explaining the approach, the algorithm used, and any specific optimizations.
 
+### Problems in the Repository
+
+#### Beecrowd (Java)
+- [1222](./beecrowd/java/1222/Main.java)
+- [1372](./beecrowd/java/1372/Main.java)
+- [1495](./beecrowd/java/1495/Main.java)
+- [1661](./beecrowd/java/1661/Main.java)
+- [1690](./beecrowd/java/1690/Main.java)
+- [2387](./beecrowd/java/2387/Main.java)
+- [2412](./beecrowd/java/2412/Main.java)
+- [2446](./beecrowd/java/2446/Main.java)
+- [2498](./beecrowd/java/2498/Main.java)
+
+#### Beecrowd (C++)
+- [2420](./beecrowd/c++/2420/TerritoryWar.cpp)
+
 ## How to Use
 
 1. **Browse the Repository**: Explore the directories to find solutions to various problems.
